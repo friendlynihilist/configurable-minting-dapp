@@ -13,8 +13,7 @@ export const DivTitle = styled.span`
   text-align: center;
   font-size: 1.6rem;
   color: var(--primary-text);
-  font-family: 'Alagard', monospace;
-  font-weight: bold;
+  font-family: var(--primary-font);
   color: 'var(--accent-text)';
   @media (min-width: 900px) {
     font-size: 2rem;
@@ -29,9 +28,8 @@ export const StyledButton = styled.button`
   padding: 10px;
   border: 1px solid black;
   background-color: var(--secondary);
-  font-family: 'VCROSDMONO', monospace;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: var(--primary-font);
+  font-size: 1.6rem;
   color: var(--secondary-text);
   width: auto;
   cursor: pointer;
@@ -121,6 +119,7 @@ function Navigation() {
       style={{
         padding: 34,
         // color: 'white !important',
+        fontFamily: 'var(--secondary-font)',
         backgroundColor: 'var(--primary-dark)',
       }}
     >

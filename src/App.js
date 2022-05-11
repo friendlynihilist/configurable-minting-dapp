@@ -22,9 +22,8 @@ export const StyledButton = styled.button`
   padding: 10px;
   border: 1px solid black;
   background-color: var(--secondary);
-  font-family: 'VCROSDMONO', monospace;
+  font-family: var(--primary-font);
   font-size: 2rem;
-  font-weight: bold;
   color: var(--secondary-text);
   width: 200px;
   cursor: pointer;
@@ -42,9 +41,9 @@ export const StyledRoundButton = styled.button`
   border: none;
   background-color: var(--primary);
   padding: 10px;
-  font-weight: bold;
   font-size: 20px;
-  color: var(--primary-text);
+  color: var(--primary);
+  font-family: var(--primary-font);
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -101,8 +100,7 @@ export const HeaderTitle = styled.span`
   text-align: center;
   font-size: 3rem;
   color: var(--primary-text);
-  font-family: 'Alagard', monospace;
-  font-weight: bold;
+  font-family: var(--primary-font);
   color: 'var(--accent-text)';
   @media (min-width: 900px) {
     font-size: 4rem;
@@ -120,8 +118,7 @@ export const DivTitle = styled.span`
   text-align: center;
   font-size: 1.6rem;
   color: var(--primary-text);
-  font-family: 'Alagard', monospace;
-  font-weight: bold;
+  font-family: var(--primary-font);
   color: 'var(--accent-text)';
   @media (min-width: 900px) {
     font-size: 2rem;
@@ -316,8 +313,8 @@ function App() {
           <s.Container flex={1} jc={'center'} ai={'center'}>
             <StyledImg
               alt={'The Great Summoning'}
-              src={'/config/images/animated_ritual.webp'}
-              style={{ imageRendering: 'pixelated' }}
+              src={'/config/images/ritual_banner.png'}
+              // style={{ width: '50%' }}
             />
 
             {!playing && (
@@ -373,16 +370,17 @@ function App() {
 
             <s.SpacerLarge />
 
-            {/* <s.TextTitle
+            <s.TextTitle
               style={{
                 textAlign: 'center',
                 fontSize: 50,
-                fontWeight: 'bold',
+                // fontWeight: 'bold',
+                fontFamily: 'var(--primary-font)',
                 color: 'var(--accent-text)',
               }}
             >
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-            </s.TextTitle> */}
+            </s.TextTitle>
 
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
               <>
@@ -470,16 +468,16 @@ function App() {
                   </s.Container>
                 ) : (
                   <>
-                    {/* <s.TextDescription
+                    <s.TextDescription
                       style={{
                         textAlign: 'center',
                         color: 'var(--accent-text)',
                       }}
                     >
                       {feedback}
-                    </s.TextDescription> */}
+                    </s.TextDescription>
                     <s.SpacerSmall />
-                    {/* <s.TextDescription
+                    <s.TextDescription
                       style={{
                         textAlign: 'center',
                         color: 'var(--accent-text)',
@@ -487,9 +485,9 @@ function App() {
                     >
                       You're summoning {mintAmount} Fantom Lord(s) for{' '}
                       {mintAmount * 20} FTM (+ gas fees).
-                    </s.TextDescription> */}
+                    </s.TextDescription>
                     <s.SpacerSmall />
-                    {/* <s.Container ai={'center'} jc={'center'} fd={'row'}>
+                    <s.Container ai={'center'} jc={'center'} fd={'row'}>
                       <StyledRoundButton
                         style={{ lineHeight: 0.4 }}
                         disabled={claimingNft ? 1 : 0}
@@ -520,9 +518,9 @@ function App() {
                       >
                         +
                       </StyledRoundButton>
-                    </s.Container> */}
+                    </s.Container>
                     <s.SpacerSmall />
-                    {/* <s.Container ai={'center'} jc={'center'} fd={'row'}>
+                    <s.Container ai={'center'} jc={'center'} fd={'row'}>
                       <StyledButton
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
@@ -533,7 +531,7 @@ function App() {
                       >
                         {claimingNft ? 'BUSY' : 'SUMMON NOW'}
                       </StyledButton>
-                    </s.Container> */}
+                    </s.Container>
                   </>
                 )}
               </>
@@ -552,7 +550,7 @@ function App() {
             // width: "90%",
             backgroundColor: '#00000061',
             color: 'white',
-            fontFamily: 'Courier New, monospace',
+            fontFamily: 'var(--secondary-font)',
             textAlign: 'left',
             paddingTop: 30,
             paddingLeft: 30,
@@ -570,7 +568,7 @@ function App() {
           <s.SpacerMedium />
 
           <ResponsiveWrapper flex={1}>
-            <s.Container
+            {/* <s.Container
               flex={1}
               jc={'start'}
               ai={'center'}
@@ -581,7 +579,7 @@ function App() {
                 src={'/config/images/previewsite.gif'}
                 style={{ width: '100%', imageRendering: 'pixelated' }}
               />
-            </s.Container>
+            </s.Container> */}
 
             <s.Container
               flex={2}
@@ -599,6 +597,7 @@ function App() {
                   lordly NFTs on the Fantom blockchain.
                 </span>
               </s.TextDescription>
+              <s.SpacerMedium/>
               {/* <br /> */}
               <s.TextDescription
                 style={{
@@ -618,10 +617,10 @@ function App() {
                 validated on the Blockchain as ERC-721 tokens on the Fantom
                 blockchain.
               </s.TextDescription>
-              <s.SpacerMedium />
-              {/* <s.SpacerSmall /> */}
+
             </s.Container>
           </ResponsiveWrapper>
+          <s.SpacerMedium />
           <DivTitle>How do I summon my Lord?</DivTitle>
           <s.SpacerMedium />
           <s.TextDescription
@@ -714,23 +713,6 @@ function App() {
             </span>
           </s.TextDescription>
           <s.SpacerMedium />
-          <ResponsiveWrapper
-            flex={1}
-            // style={{ backgroundColor: 'rgb(189, 117, 74)' }}
-          >
-            <s.Container
-              flex={1}
-              jc={'center'}
-              ai={'center'}
-              style={{ padding: 10, borderTop: '2px solid #fff' }}
-            >
-              <StyledImg
-                alt={'The Great Summoning'}
-                src={'/config/images/stakingdiagram_template.png'}
-                style={{ imageRendering: 'pixelated', width: '100%' }}
-              />
-            </s.Container>
-          </ResponsiveWrapper>
           <s.SpacerSmall />
         </s.respContainer>
         {/* END SECTION */}

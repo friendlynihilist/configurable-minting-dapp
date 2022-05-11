@@ -237,11 +237,11 @@ function Army() {
       // SETSTATE SPINNER FALSE
 
       // SIMPLE SORT - ADD MORE SORTING OPTION IN THE FUTURE
-      if (tokensArray[0].edition) {
-        tokensArray = tokensArray.sort(function(obj1, obj2) {
-          return obj1.edition - obj2.edition
-        });
-      }
+      // if (tokensArray[0].edition) {
+      //   tokensArray = tokensArray.sort(function(obj1, obj2) {
+      //     return obj1.edition - obj2.edition
+      //   });
+      // }
       // 
       setIsChecking(false);
       setLords(tokensArray);

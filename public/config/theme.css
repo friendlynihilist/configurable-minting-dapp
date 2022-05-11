@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Lato&family=Lobster&display=swap');
+
 :root {
   --primary: #242234;
   --primary-dark: #161520;
@@ -6,4 +8,6 @@
   --secondary-text: #ffffff;
   --accent: #6caab9;
   --accent-text: #f5f5f5;
+  --primary-font: 'Bangers', cursive;
+  --secondary-font: "Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue", sans-serif;
 }
